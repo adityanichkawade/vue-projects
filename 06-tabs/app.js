@@ -15,7 +15,7 @@ const App = {
       loading.value = false;
     };
 
-    const current = computed(() => jobs.value[value.value] || {});
+    const current = computed(() => jobs.value[value.value]);
 
     onMounted(() => {
       fetchJobs();
@@ -49,7 +49,7 @@ const App = {
             <h4>{{current.company}}</h4>
             <p class="job-date">{{current.dates}}</p>
             <div v-for="(duty, index) in current.duties" :key="index" class="job-desc">
-                <i class="fa-angle-double-right job-icon"></i>
+                <i class="fa fa-angle-double-right job-icon"></i>
                 <p>{{duty}}</p>
             </div> 
         </article>
