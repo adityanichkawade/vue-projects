@@ -43,14 +43,9 @@ const App = {
     const items = ref(data);
     const activeTab = ref(1);
 
-    const onPanelClick = (id) => {
-      activeTab.value = id;
-    };
-
     return {
       items,
       activeTab,
-      onPanelClick,
     };
   },
   components: {
@@ -58,7 +53,7 @@ const App = {
   },
   template: `
     <div class="container">
-        <image-panel v-for="item in items" @panel-click="onPanelClick(item.id)"  :isActive="item.id === activeTab" :img="item.img" :title="item.title"></image-panel>
+        <image-panel v-for="item in items" @panel-click="activeTab = item.id"  :isActive="item.id === activeTab" :img="item.img" :title="item.title"></image-panel>
     </div>
   `,
 };
